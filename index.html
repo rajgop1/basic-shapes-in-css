@@ -6,20 +6,36 @@
     <title>Basic Shapes in HTML & CSS</title>
     <style>
         body {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
             background-color: #121212;
             color: white;
-            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 30px;
+            color: #F9AE1C;
+            font-size: 2rem;
         }
         .shape-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            width: 80%;
+            margin-top: 50px;
         }
         .shape {
             display: flex;
@@ -32,6 +48,8 @@
         }
         .title {
             margin-top: 10px;
+            font-size: 1rem;
+            color: #F9AE1C;
         }
         .square {
             width: 100px;
@@ -62,7 +80,23 @@
             border-right: 50px solid transparent;
             border-bottom: 100px solid purple;
         }
-        
+        .pentagon {
+            width: 54px;
+            border-width: 0 50px 50px 50px;
+            border-style: solid;
+            border-color: transparent transparent yellow transparent;
+            position: relative;
+        }
+        .pentagon:before {
+            content: "";
+            position: absolute;
+            top: -30px;
+            left: -50px;
+            width: 0;
+            border-style: solid;
+            border-width: 30px 50px 0 50px;
+            border-color: yellow transparent transparent transparent;
+        }
         .hexagon {
             width: 100px;
             height: 55px;
@@ -75,6 +109,36 @@
             height: 60px;
             background: pink;
             transform: skew(20deg);
+        }
+        .star {
+            position: relative;
+            display: block;
+            color: gold;
+            width: 0px;
+            height: 0px;
+            margin-top: 20px;
+            border-right: 50px solid transparent;
+            border-bottom: 35px solid gold;
+            border-left: 50px solid transparent;
+            transform: rotate(35deg);
+        }
+        .star:before, .star:after {
+            content: "";
+            position: absolute;
+            left: -50px;
+            width: 0;
+            height: 0;
+            border-right: 50px solid transparent;
+            border-bottom: 35px solid gold;
+            border-left: 50px solid transparent;
+        }
+        .star:before {
+            top: -25px;
+            transform: rotate(-70deg);
+        }
+        .star:after {
+            top: 0px;
+            transform: rotate(140deg);
         }
         .heart {
             position: relative;
@@ -104,13 +168,18 @@
     </style>
 </head>
 <body>
-    <div class="shape-container"><div class="shape square"></div><div class="title">Square</div></div>
-    <div class="shape-container"><div class="shape rectangle"></div><div class="title">Rectangle</div></div>
-    <div class="shape-container"><div class="shape circle"></div><div class="title">Circle</div></div>
-    <div class="shape-container"><div class="shape oval"></div><div class="title">Oval</div></div>
-    <div class="shape-container"><div class="triangle"></div><div class="title">Triangle</div></div>
-    <div class="shape-container"><div class="shape hexagon"></div><div class="title">Hexagon</div></div>
-    <div class="shape-container"><div class="shape parallelogram"></div><div class="title">Parallelogram</div></div>
-    <div class="shape-container"><div class="shape heart"></div><div class="title">Heart</div></div>
+    <h1>Basic Shapes in HTML & CSS</h1>
+    <div class="grid-container">
+        <div class="shape-container"><div class="shape square"></div><div class="title">Square</div></div>
+        <div class="shape-container"><div class="shape rectangle"></div><div class="title">Rectangle</div></div>
+        <div class="shape-container"><div class="shape circle"></div><div class="title">Circle</div></div>
+        <div class="shape-container"><div class="shape oval"></div><div class="title">Oval</div></div>
+        <div class="shape-container"><div class="triangle"></div><div class="title">Triangle</div></div>
+        <div class="shape-container"><div class="shape pentagon"></div><div class="title">Pentagon</div></div>
+        <div class="shape-container"><div class="shape hexagon"></div><div class="title">Hexagon</div></div>
+        <div class="shape-container"><div class="shape parallelogram"></div><div class="title">Parallelogram</div></div>
+        <div class="shape-container"><div class="shape star"></div><div class="title">Star</div></div>
+        <div class="shape-container"><div class="shape heart"></div><div class="title">Heart</div></div>
+    </div>
 </body>
 </html>
