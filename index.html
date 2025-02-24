@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Shapes in HTML & CSS</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .shape {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+        }
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .rectangle {
+            width: 150px;
+            height: 100px;
+            background-color: blue;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-radius: 50%;
+        }
+        .oval {
+            width: 150px;
+            height: 100px;
+            background-color: orange;
+            border-radius: 50%;
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid purple;
+        }
+        .pentagon {
+            width: 0;
+            border-style: solid;
+            border-width: 50px 30px 0 30px;
+            border-color: yellow transparent transparent transparent;
+            position: relative;
+        }
+        .pentagon:after {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -30px;
+            width: 0;
+            border-style: solid;
+            border-width: 0 60px 50px 60px;
+            border-color: transparent transparent yellow transparent;
+        }
+        .hexagon {
+            width: 100px;
+            height: 55px;
+            background-color: cyan;
+            position: relative;
+        }
+        .hexagon:before,
+        .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        .hexagon:before {
+            top: -25px;
+            border-bottom: 25px solid cyan;
+        }
+        .hexagon:after {
+            bottom: -25px;
+            border-top: 25px solid cyan;
+        }
+        .parallelogram {
+            width: 120px;
+            height: 60px;
+            background: pink;
+            transform: skew(20deg);
+        }
+        .star {
+            width: 0px;
+            height: 0px;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid gold;
+            position: relative;
+        }
+        .star:after {
+            content: "";
+            position: absolute;
+            left: -50px;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 100px solid gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="shape square">Square</div>
+    <div class="shape rectangle">Rectangle</div>
+    <div class="shape circle">Circle</div>
+    <div class="shape oval">Oval</div>
+    <div class="triangle"></div>
+    <div class="shape pentagon">Pentagon</div>
+    <div class="shape hexagon">Hexagon</div>
+    <div class="shape parallelogram">Parallelogram</div>
+    <div class="shape star">Star</div>
+</body>
+</html>
