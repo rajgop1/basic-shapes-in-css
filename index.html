@@ -12,7 +12,14 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .shape-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .shape {
             display: flex;
@@ -20,6 +27,11 @@
             align-items: center;
             font-weight: bold;
             color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .title {
+            margin-top: 10px;
         }
         .square {
             width: 100px;
@@ -50,46 +62,29 @@
             border-right: 50px solid transparent;
             border-bottom: 100px solid purple;
         }
-       .pentagon {
-            position: relative;
+        .pentagon {
             width: 54px;
+            border-width: 0 50px 50px 50px;
             border-style: solid;
-            border-width: 50px 20px 0 20px;
-            border-color: yellow transparent transparent transparent;
+            border-color: transparent transparent yellow transparent;
+            position: relative;
         }
-        
         .pentagon:before {
             content: "";
             position: absolute;
             top: -30px;
-            left: -35px;
+            left: -50px;
             width: 0;
             border-style: solid;
-            border-width: 30px 50px 50px 50px;
-            border-color: transparent transparent yellow transparent;
+            border-width: 30px 50px 0 50px;
+            border-color: yellow transparent transparent transparent;
         }
-
         .hexagon {
             width: 100px;
             height: 55px;
             background-color: cyan;
             position: relative;
-        }
-        .hexagon:before,
-        .hexagon:after {
-            content: "";
-            position: absolute;
-            width: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-        }
-        .hexagon:before {
-            top: -25px;
-            border-bottom: 25px solid cyan;
-        }
-        .hexagon:after {
-            bottom: -25px;
-            border-top: 25px solid cyan;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
         }
         .parallelogram {
             width: 120px;
@@ -97,8 +92,37 @@
             background: pink;
             transform: skew(20deg);
         }
-
-        heart {
+        .star {
+            position: relative;
+            display: block;
+            color: gold;
+            width: 0px;
+            height: 0px;
+            margin-top: 20px;
+            border-right: 50px solid transparent;
+            border-bottom: 35px solid gold;
+            border-left: 50px solid transparent;
+            transform: rotate(35deg);
+        }
+        .star:before, .star:after {
+            content: "";
+            position: absolute;
+            left: -50px;
+            width: 0;
+            height: 0;
+            border-right: 50px solid transparent;
+            border-bottom: 35px solid gold;
+            border-left: 50px solid transparent;
+        }
+        .star:before {
+            top: -25px;
+            transform: rotate(-70deg);
+        }
+        .star:after {
+            top: 0px;
+            transform: rotate(140deg);
+        }
+        .heart {
             position: relative;
             width: 100px;
             height: 100px;
@@ -123,18 +147,18 @@
             transform: rotate(45deg);
             transform-origin: 100% 100%;
         }
-
     </style>
 </head>
 <body>
-    <div class="shape square">Square</div>
-    <div class="shape rectangle">Rectangle</div>
-    <div class="shape circle">Circle</div>
-    <div class="shape oval">Oval</div>
-    <div class="triangle"></div>
-    <div class="shape hexagon">Hexagon</div>
-    <div class="shape parallelogram">Parallelogram</div>
+    <div class="shape-container"><div class="shape square"></div><div class="title">Square</div></div>
+    <div class="shape-container"><div class="shape rectangle"></div><div class="title">Rectangle</div></div>
+    <div class="shape-container"><div class="shape circle"></div><div class="title">Circle</div></div>
+    <div class="shape-container"><div class="shape oval"></div><div class="title">Oval</div></div>
+    <div class="shape-container"><div class="triangle"></div><div class="title">Triangle</div></div>
+    <div class="shape-container"><div class="shape pentagon"></div><div class="title">Pentagon</div></div>
+    <div class="shape-container"><div class="shape hexagon"></div><div class="title">Hexagon</div></div>
+    <div class="shape-container"><div class="shape parallelogram"></div><div class="title">Parallelogram</div></div>
+    <div class="shape-container"><div class="shape star"></div><div class="title">Star</div></div>
     <div class="shape-container"><div class="shape heart"></div><div class="title">Heart</div></div>
-
 </body>
 </html>
